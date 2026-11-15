@@ -1,6 +1,6 @@
 # Array Visualiser
 
-A really simple array visualizser built in Java I made for fun. Uses the javax.swing library.
+A really simple array visualizser built in Java I made for fun. Uses the ```javax.swing``` library.
 
 ## Features
 
