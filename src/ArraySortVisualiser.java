@@ -19,7 +19,7 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
 		setBackground(Color.BLACK);
 		setPreferredSize(new Dimension(width, height));
 
-		sort = Algorithm.SHELL_SORT;
+		sort = Algorithm.QUICK_SORT;
 		sortingAlgorithms = new SortingAlgorithms(this);
 		array = createArray(ARRAY_LENGTH);
 		elementColors = new Color[ARRAY_LENGTH];
