@@ -9,7 +9,7 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
 
 	private int panelWidth;
 	private int panelHeight;
-	private byte sort;
+	private Algorithm sort;
 	private String sortName;
 	private int radixLSDBase;
 
@@ -19,7 +19,7 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
 		setBackground(Color.BLACK);
 		setPreferredSize(new Dimension(width, height));
 
-		sort = 0;
+		sort = Algorithm.SHELL_SORT;
 		sortingAlgorithms = new SortingAlgorithms(this);
 		array = createArray(ARRAY_LENGTH);
 		elementColors = new Color[ARRAY_LENGTH];
@@ -67,66 +67,73 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
 			sortingAlgorithms.shuffle();
 			sleep(1000);
 			switch (sort) {
-				case 0:
+				case QUICK_SORT:
 					sortingAlgorithms.startQuickSort();
+					sort = Algorithm.HEAP_SORT;
 					break;
-				case 1:
+				case HEAP_SORT:
 					sortingAlgorithms.startHeapSort();
+					sort = Algorithm.RADIX_SORT;
 					break;
-				case 2:
+				case RADIX_SORT:
 					sortingAlgorithms.startRadixLSDSort(radixLSDBase);
+					sort = Algorithm.MERGE_SORT;
 					break;
-				case 3:
+				case MERGE_SORT:
 					sortingAlgorithms.startMergeSort();
+					sort = Algorithm.SHELL_SORT;
 					break;
-				case 4:
+				case SHELL_SORT:
 					sortingAlgorithms.shellSort();
+					sort = Algorithm.INSERTION_SORT;
 					break;
-				case 5:
+				case INSERTION_SORT:
 					sortingAlgorithms.insertionSort();
+					sort = Algorithm.BUBBLE_SORT;
 					break;
-				case 6:
+				case BUBBLE_SORT:
 					sortingAlgorithms.bubbleSort();
+					sort = Algorithm.SELECTION_SORT;
 					break;
-				case 7:
+				case SELECTION_SORT:
 					sortingAlgorithms.selectionSort();
+					sort = Algorithm.GNOME_SORT;
 					break;
-				case 8:
+				case GNOME_SORT:
 					sortingAlgorithms.gnomeSort();
+					sort = Algorithm.QUICK_SORT;
 			}
-			sort++;
-			sort %= 9;
 			sleep(1000);
 		}
 	}
 
 	private void setSortName() {
 		switch (sort) {
-			case 0:
+			case QUICK_SORT:
 				sortName = "Quick Sort";
 				break;
-			case 1:
+			case HEAP_SORT:
 				sortName = "Heap Sort";
 				break;
-			case 2:
+			case RADIX_SORT:
 				sortName = "Radix LSD Sort (Base " + radixLSDBase + ")";
 				break;
-			case 3:
+			case MERGE_SORT:
 				sortName = "Merge Sort";
 				break;
-			case 4:
+			case SHELL_SORT:
 				sortName = "Shell Sort";
 				break;
-			case 5:
+			case INSERTION_SORT:
 				sortName = "Insertion Sort";
 				break;
-			case 6:
+			case BUBBLE_SORT:
 				sortName = "Bubble Sort";
 				break;
-			case 7:
+			case SELECTION_SORT:
 				sortName = "Selection Sort";
 				break;
-			case 8:
+			case GNOME_SORT:
 				sortName = "Gnome Sort";
 		}
 	}

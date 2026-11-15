@@ -18,11 +18,11 @@ public class SortingAlgorithms {
 	private final int MERGE_SORT_DELAY = 1;
 	private final int HEAP_SORT_DELAY = 1;
 
-	private final int SHELL_SORT_RATE = 1;
-	private final int SELECTION_SORT_RATE = 20;
-	private final int BUBBLE_SORT_RATE = 18;
-	private final int INSERTION_SORT_RATE = 10;
-	private final int GNOME_SORT_RATE = 24;
+	private final int SHELL_SORT_RATE = 2;
+	private final int SELECTION_SORT_RATE = 32;
+	private final int BUBBLE_SORT_RATE = 32;
+	private final int INSERTION_SORT_RATE = 24;
+	private final int GNOME_SORT_RATE = 48;
 
 	private ArraySortVisualiser visualiser;
 	private SubAlgorithms algorithms;
@@ -191,13 +191,12 @@ public class SortingAlgorithms {
 		while (i < n1 && j < n2) {
 			if (L[i] <= R[j]) {
 				array[k] = L[i];
-				visualiser.elementColors[k] = Color.RED;
 				i++;
 			} else {
 				array[k] = R[j];
-				visualiser.elementColors[k] = Color.RED;
 				j++;
 			}
+			visualiser.elementColors[k] = Color.RED;
 			visualiser.array = array;
 			visualiser.update(MERGE_SORT_DELAY);
 			k++;

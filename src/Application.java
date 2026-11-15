@@ -11,16 +11,15 @@ public class Application {
 		frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(true);
-		frame.setMinimumSize(new Dimension(1280, 640));
+		frame.setMinimumSize(new Dimension(800, 400));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		ArraySortVisualiser visualiser = new ArraySortVisualiser(WINDOW_WIDTH, WINDOW_HEIGHT);
 		frame.add(visualiser);
+		frame.setVisible(true);
 		frame.pack();
 
 		Thread visualiserThread = new Thread(visualiser);
 		visualiserThread.start();
-		
-		frame.setVisible(true);
 	}
 }
