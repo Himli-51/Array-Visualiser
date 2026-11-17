@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SortingAlgorithms {
 	private class SubAlgorithms {
-		public void swap(int id1, int id2) {
+		private void swap(int id1, int id2) {
 			int tmp = visualiser.array[id1];
 			visualiser.array[id1] = visualiser.array[id2];
 			visualiser.array[id2] = tmp;
