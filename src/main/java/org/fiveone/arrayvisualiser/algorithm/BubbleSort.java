@@ -4,7 +4,7 @@ import org.fiveone.arrayvisualiser.ArraySortVisualiser;
 import java.awt.Color;
 
 public class BubbleSort extends Algorithm {
-    private final int BUBBLE_SORT_RATE = 32;
+    private static final int RATE = 8;
 
     public BubbleSort(ArraySortVisualiser visualiser) {
         super(visualiser);
@@ -25,9 +25,10 @@ public class BubbleSort extends Algorithm {
                     isSolved = false;
                 } else {
                     visualiser.elementColors[j] = new Color(255, 60, 0);
+                    visualiser.elementColors[j+ 1] = new Color(255, 60, 0);
                 }
                 updateFrame++;
-                updateFrame %= BUBBLE_SORT_RATE;
+                updateFrame %= RATE;
                 if (updateFrame == 0) {
                     visualiser.update(1);
                 }

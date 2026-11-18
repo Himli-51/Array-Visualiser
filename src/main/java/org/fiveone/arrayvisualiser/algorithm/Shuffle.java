@@ -4,7 +4,7 @@ import org.fiveone.arrayvisualiser.ArraySortVisualiser;
 import java.util.Random;
 
 public class Shuffle extends Algorithm {
-    private final int SHUFFLE_DELAY = 1;
+    private static final int DELAY = 1;
     private Random random;
 
     public Shuffle(ArraySortVisualiser visualiser) {
@@ -16,7 +16,7 @@ public class Shuffle extends Algorithm {
     public void start() {
         for (int i = visualiser.ARRAY_LENGTH - 1; i > 0; i--) {
             swap(i, random.nextInt(i+1));
-            visualiser.update(SHUFFLE_DELAY);
+            visualiser.update(DELAY);
         }
         visualiser.update(0);
     }

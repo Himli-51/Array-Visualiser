@@ -4,7 +4,7 @@ import org.fiveone.arrayvisualiser.ArraySortVisualiser;
 import java.awt.Color;
 
 public class InsertionSort extends Algorithm {
-    private final int INSERTION_SORT_RATE = 24;
+    private static final int RATE = 4;
 
     public InsertionSort(ArraySortVisualiser visualiser) {
         super(visualiser);
@@ -20,7 +20,7 @@ public class InsertionSort extends Algorithm {
                 visualiser.elementColors[i] = Color.GREEN;
                 j--;
                 updateFrame++;
-                updateFrame %= INSERTION_SORT_RATE;
+                updateFrame %= RATE;
                 if (updateFrame == 0) {
                     visualiser.update(1);
                 }

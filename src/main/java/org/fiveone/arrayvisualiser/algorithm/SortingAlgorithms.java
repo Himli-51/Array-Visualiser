@@ -149,7 +149,6 @@ public class SortingAlgorithms {
 				}
 			}
 			algorithms.swap(smallest, i);
-
 			visualiser.update(1);
 		}
 		visualiser.update(0);
