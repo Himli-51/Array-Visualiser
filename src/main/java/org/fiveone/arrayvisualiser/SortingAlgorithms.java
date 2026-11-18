@@ -1,3 +1,5 @@
+package org.fiveone.arrayvisualiser;
+
 import java.awt.Color;
 import java.util.Random;
 import java.util.Arrays;

@@ -1,6 +1,5 @@
-# Specific folder(s)
-bin/
-lib/
+# Folder of binaries
+target/
 
 # Compiled class file
 *.class

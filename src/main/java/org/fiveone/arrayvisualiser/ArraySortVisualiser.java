@@ -1,3 +1,5 @@
+package org.fiveone.arrayvisualiser;
+
 import javax.swing.*;
 import java.awt.*;
 

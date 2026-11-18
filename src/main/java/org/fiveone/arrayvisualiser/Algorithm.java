@@ -1,3 +1,5 @@
+package org.fiveone.arrayvisualiser;
+
 public enum Algorithm {
     QUICK_SORT,
     HEAP_SORT,

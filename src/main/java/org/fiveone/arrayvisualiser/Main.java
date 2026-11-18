@@ -1,7 +1,9 @@
+package org.fiveone.arrayvisualiser;
+
 import javax.swing.*;
 import java.awt.Dimension;
 
-public class Application {
+public class Main {
 	private static final int WINDOW_WIDTH = 1280;
 	private static final int WINDOW_HEIGHT = 640;
 
