@@ -1,28 +1,35 @@
 package org.fiveone.arrayvisualiser;
 
+import org.fiveone.arrayvisualiser.algorithm.*;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ArraySortVisualiser extends JPanel implements Runnable {
 	public final int ARRAY_LENGTH = 1280;
 
 	public int[] array;
 	public Color[] elementColors;
+	public String sortName;
 
 	private int panelWidth;
 	private int panelHeight;
-	private Algorithm sort;
-	private String sortName;
-	private int radixLSDBase;
 
-	private SortingAlgorithms sortingAlgorithms;
+	private ArrayList<Algorithm> algorithms;
+	private byte sortIndex;
+	private Shuffle shuffle;
 
 	public ArraySortVisualiser(int width, int height) {
 		setBackground(Color.BLACK);
 		setPreferredSize(new Dimension(width, height));
 
-		sort = Algorithm.QUICK_SORT;
-		sortingAlgorithms = new SortingAlgorithms(this);
+		shuffle = new Shuffle(this);
+		algorithms = new ArrayList<Algorithm>(2);
+		algorithms.add(new InsertionSort(this));
+		algorithms.add(new BubbleSort(this));
+
+		sortIndex = 0;
+
 		array = createArray(ARRAY_LENGTH);
 		elementColors = new Color[ARRAY_LENGTH];
 		for (int i = 0; i < ARRAY_LENGTH; i++) {
@@ -60,83 +67,17 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
 
 	@Override
 	public void run() {
-		radixLSDBase = 4;
 		sortName = "Start";
 		update(0);
 		sleep(1000);
 		while(true) {
-			setSortName();
-			sortingAlgorithms.shuffle();
+			sortName = algorithms.get(sortIndex).getName();
+			shuffle.start();
 			sleep(1000);
-			switch (sort) {
-				case QUICK_SORT:
-					sortingAlgorithms.startQuickSort();
-					sort = Algorithm.HEAP_SORT;
-					break;
-				case HEAP_SORT:
-					sortingAlgorithms.startHeapSort();
-					sort = Algorithm.RADIX_SORT;
-					break;
-				case RADIX_SORT:
-					sortingAlgorithms.startRadixLSDSort(radixLSDBase);
-					sort = Algorithm.MERGE_SORT;
-					break;
-				case MERGE_SORT:
-					sortingAlgorithms.startMergeSort();
-					sort = Algorithm.SHELL_SORT;
-					break;
-				case SHELL_SORT:
-					sortingAlgorithms.shellSort();
-					sort = Algorithm.INSERTION_SORT;
-					break;
-				case INSERTION_SORT:
-					sortingAlgorithms.insertionSort();
-					sort = Algorithm.BUBBLE_SORT;
-					break;
-				case BUBBLE_SORT:
-					sortingAlgorithms.bubbleSort();
-					sort = Algorithm.SELECTION_SORT;
-					break;
-				case SELECTION_SORT:
-					sortingAlgorithms.selectionSort();
-					sort = Algorithm.GNOME_SORT;
-					break;
-				case GNOME_SORT:
-					sortingAlgorithms.gnomeSort();
-					sort = Algorithm.QUICK_SORT;
-			}
+			algorithms.get(sortIndex).start();
+			sortIndex++;
+			sortIndex %= algorithms.size();
 			sleep(1000);
-		}
-	}
-
-	private void setSortName() {
-		switch (sort) {
-			case QUICK_SORT:
-				sortName = "Quick Sort";
-				break;
-			case HEAP_SORT:
-				sortName = "Heap Sort";
-				break;
-			case RADIX_SORT:
-				sortName = "Radix LSD Sort (Base " + radixLSDBase + ")";
-				break;
-			case MERGE_SORT:
-				sortName = "Merge Sort";
-				break;
-			case SHELL_SORT:
-				sortName = "Shell Sort";
-				break;
-			case INSERTION_SORT:
-				sortName = "Insertion Sort";
-				break;
-			case BUBBLE_SORT:
-				sortName = "Bubble Sort";
-				break;
-			case SELECTION_SORT:
-				sortName = "Selection Sort";
-				break;
-			case GNOME_SORT:
-				sortName = "Gnome Sort";
 		}
 	}
 

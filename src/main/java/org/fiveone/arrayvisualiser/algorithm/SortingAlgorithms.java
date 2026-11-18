@@ -1,9 +1,11 @@
-package org.fiveone.arrayvisualiser;
+package org.fiveone.arrayvisualiser.algorithm;
 
+import org.fiveone.arrayvisualiser.ArraySortVisualiser;
 import java.awt.Color;
 import java.util.Random;
 import java.util.Arrays;
 
+@Deprecated
 public class SortingAlgorithms {
 	private class SubAlgorithms {
 		private void swap(int id1, int id2) {
@@ -30,12 +32,14 @@ public class SortingAlgorithms {
 	private SubAlgorithms algorithms;
 	private Random random;
 
+	@Deprecated
 	public SortingAlgorithms(ArraySortVisualiser visualiser) {
 		this.visualiser = visualiser;
 		algorithms = new SubAlgorithms();
 		random = new Random();
 	}
 
+	@Deprecated
 	public void shuffle() {
 		for (int i = visualiser.ARRAY_LENGTH - 1; i > 0; i--) {
 			algorithms.swap(i, random.nextInt(i+1));
@@ -44,10 +48,12 @@ public class SortingAlgorithms {
 		visualiser.update(0);
 	}
 
+	@Deprecated
 	public void reverse() {
 		
 	}
 
+	@Deprecated
 	public void bubbleSort() {
 		byte updateFrame = 0;
 		boolean isSolved;
@@ -76,6 +82,7 @@ public class SortingAlgorithms {
 		visualiser.update(0);
 	}
 
+	@Deprecated
 	public void insertionSort() {
 		byte updateFrame = 0;
 		for (int i = 1; i < visualiser.ARRAY_LENGTH; i++) {
@@ -94,6 +101,7 @@ public class SortingAlgorithms {
 		visualiser.update(0);
 	}
 
+	@Deprecated
 	public void gnomeSort() {
 		int i = 0;
 		byte updateFrame = 0;
@@ -117,6 +125,7 @@ public class SortingAlgorithms {
 		visualiser.update(0);
 	}
 
+	@Deprecated
 	public void selectionSort() {
 		int smallest;
 		byte updateFrame = 0;
@@ -146,6 +155,7 @@ public class SortingAlgorithms {
 		visualiser.update(0);
 	}
 
+	@Deprecated
 	public void shellSort() {
 		byte updateFrame = 0;
 		for (int gap = visualiser.ARRAY_LENGTH / 2; gap > 0; gap /= 2) {
@@ -222,8 +232,9 @@ public class SortingAlgorithms {
 			k++;
 		}
 	}
-	
+
 	// To initiate Merge Sort, call this method
+	@Deprecated
 	public void startMergeSort() {
 		mergeSort(visualiser.array, 0, visualiser.ARRAY_LENGTH - 1);
 		visualiser.update(0);
@@ -271,6 +282,7 @@ public class SortingAlgorithms {
 	}
 	
 	// To initiate Heap Sort, call this method
+	@Deprecated
 	public void startHeapSort() {
 		heapSort();
 	}
@@ -302,11 +314,13 @@ public class SortingAlgorithms {
 	}
 	
 	// To initiate Quick Sort, call this method
+	@Deprecated
 	public void startQuickSort() {
 		quickSort(visualiser.array, 0, visualiser.ARRAY_LENGTH - 1);
 		visualiser.update(0); // Final update after sorting
 	}
 
+	@Deprecated
 	public void radixLSDSort(int base) {
 		int max = visualiser.ARRAY_LENGTH;
 		for (int exp = 1; max / exp > 0; exp *= base) {
@@ -315,6 +329,7 @@ public class SortingAlgorithms {
 		visualiser.update(0); // Final update after sorting
 	}
 	
+	@Deprecated
 	public void countSort(int[] array, int exp, int base) {
 		int n = array.length;
 		int[] output = new int[n];
@@ -342,6 +357,7 @@ public class SortingAlgorithms {
 	}
 	
 	// To initiate Radix LSD Sort with custom base, call this method
+	@Deprecated
 	public void startRadixLSDSort(int base) {
 		if (base < 2) {
 			throw new IllegalArgumentException("Input lower than 2");
