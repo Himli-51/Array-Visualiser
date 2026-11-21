@@ -10,10 +10,12 @@ It's a small project, but here's the available features anyways:
 
 Available sorting algorithms:
 - Bubble Sort
+- Cocktail Shaker Sort
 - Insertion Sort
 - Gnome Sort
 - Selection Sort
 - Shell Sort
+- Comb Sort
 - Merge Sort
 - Heap Sort
 - Quick Sort

@@ -37,7 +37,7 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
         algorithms.add(new SelectionSort(this));
         algorithms.add(new GnomeSort(this));
 
-        sortIndex = 8;
+        sortIndex = 0;
 
         array = createArray(ARRAY_LENGTH);
         elementColors = new Color[ARRAY_LENGTH];
