@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class ArraySortVisualiser extends JPanel {
+public class ArraySortVisualiser extends JPanel implements Runnable {
     public static final int ARRAY_LENGTH = 640;
 
     public int[] array;
@@ -78,6 +78,7 @@ public class ArraySortVisualiser extends JPanel {
         }
     }
 
+    @Override
     public void run() {
         sortName = "Start";
         update(0);
