@@ -8,6 +8,12 @@ public class Main {
     private static final int FRAME_HEIGHT = 640;
 
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            createAndShowGUI();
+        });
+    }
+
+    private static void createAndShowGUI() {
         JFrame frame = new JFrame("Array Visualiser");
 
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -21,7 +27,6 @@ public class Main {
         frame.setVisible(true);
         frame.pack();
 
-        Thread visualiserThread = new Thread(visualiser);
-        visualiserThread.start();
+        visualiser.run();
     }
 }

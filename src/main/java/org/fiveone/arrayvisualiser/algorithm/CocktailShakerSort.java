@@ -14,8 +14,8 @@ public class CocktailShakerSort extends Algorithm {
     public void start() {
         byte updateFrame = 0;
         int beginIndex = 0;
-        int endIndex = ArraySortVisualiser.ARRAY_LENGTH - 2;
-        while (beginIndex <= endIndex) {
+        int endIndex = ArraySortVisualiser.ARRAY_LENGTH - 1;
+        while (beginIndex < endIndex) {
             int newBeginIndex = endIndex;
             int newEndIndex = beginIndex;
             for (int i = beginIndex; i < endIndex; i++) {
@@ -27,7 +27,7 @@ public class CocktailShakerSort extends Algorithm {
                     visualiser.elementColors[i + 1] = new Color(255, 60, 0);
                 }
                 if (beginIndex > 0) visualiser.elementColors[beginIndex - 1] = Color.GREEN;
-                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH) visualiser.elementColors[endIndex + 1] = Color.GREEN;
+                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH - 1) visualiser.elementColors[endIndex + 1] = Color.GREEN;
                 updateFrame++;
                 updateFrame %= RATE;
                 if (updateFrame == 0) {
@@ -45,7 +45,7 @@ public class CocktailShakerSort extends Algorithm {
                     visualiser.elementColors[i - 1] = new Color(255, 60, 0);
                 }
                 if (beginIndex > 0) visualiser.elementColors[beginIndex - 1] = Color.GREEN;
-                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH) visualiser.elementColors[endIndex + 1] = Color.GREEN;
+                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH - 1) visualiser.elementColors[endIndex + 1] = Color.GREEN;
                 updateFrame++;
                 updateFrame %= RATE;
                 if (updateFrame == 0) {

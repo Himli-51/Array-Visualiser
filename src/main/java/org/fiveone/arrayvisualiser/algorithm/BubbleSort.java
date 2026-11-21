@@ -13,11 +13,11 @@ public class BubbleSort extends Algorithm {
     @Override
     public void start() {
         byte updateFrame = 0;
-        int endIndex = ArraySortVisualiser.ARRAY_LENGTH - 2;
-        while (endIndex > 1) {
+        int endIndex = ArraySortVisualiser.ARRAY_LENGTH - 1;
+        while (endIndex > 0) {
             int newEndIndex = 0;
             for (int i = 0; i < endIndex; i++) {
-                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH) visualiser.elementColors[endIndex + 1] = Color.GREEN;
+                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH - 1) visualiser.elementColors[endIndex + 1] = Color.GREEN;
                 if (visualiser.array[i] > visualiser.array[i + 1]) {
                     swap(i, i + 1);
                     newEndIndex = i;

@@ -10,6 +10,7 @@ public abstract class Algorithm {
         this.visualiser = visualiser;
     }
 
+    // Utility methods
     protected void swap(int id1, int id2) {
         int tmp = visualiser.array[id1];
         visualiser.array[id1] = visualiser.array[id2];

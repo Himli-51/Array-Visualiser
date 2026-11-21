@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class ArraySortVisualiser extends JPanel implements Runnable {
+public class ArraySortVisualiser extends JPanel {
     public static final int ARRAY_LENGTH = 640;
 
     public int[] array;
@@ -18,12 +18,16 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
     private ArrayList<Algorithm> algorithms;
     private byte sortIndex;
     private Shuffle shuffle;
+    private Reverse reverse;
+    private Check check;
 
     public ArraySortVisualiser(int width, int height) {
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(width, height));
 
         shuffle = new Shuffle(this);
+        reverse = new Reverse(this);
+        check = new Check(this);
         algorithms = new ArrayList<Algorithm>(20);
         algorithms.add(new QuickSort(this));
         algorithms.add(new MergeSort(this));
@@ -74,7 +78,6 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
         }
     }
 
-    @Override
     public void run() {
         sortName = "Start";
         update(0);
@@ -82,8 +85,10 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
         while(true) {
             sortName = algorithms.get(sortIndex).getName();
             shuffle.start();
+            //reverse.start();
             sleep(1000);
             algorithms.get(sortIndex).start();
+            check.start();
             sortIndex++;
             sortIndex %= algorithms.size();
             sleep(1000);
