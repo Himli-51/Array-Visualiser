@@ -13,7 +13,7 @@ public class InsertionSort extends Algorithm {
     @Override
     public void start() {
         byte updateFrame = 0;
-        for (int i = 1; i < visualiser.ARRAY_LENGTH; i++) {
+        for (int i = 1; i < ArraySortVisualiser.ARRAY_LENGTH; i++) {
             int j = i;
             while (j > 0 && visualiser.array[j] < visualiser.array[j - 1]) {
                 swap(j, j - 1);

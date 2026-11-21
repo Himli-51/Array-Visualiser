@@ -14,9 +14,9 @@ public class SelectionSort extends Algorithm {
     public void start() {
         int smallest;
         byte updateFrame = 0;
-        for (int i = 0; i < visualiser.ARRAY_LENGTH - 1; i++) {
+        for (int i = 0; i < ArraySortVisualiser.ARRAY_LENGTH - 1; i++) {
             smallest = i;
-            for (int j = i; j < visualiser.ARRAY_LENGTH; j++) {
+            for (int j = i; j < ArraySortVisualiser.ARRAY_LENGTH; j++) {
                 if (visualiser.array[j] < visualiser.array[smallest]) {
                     smallest = j;
                 }

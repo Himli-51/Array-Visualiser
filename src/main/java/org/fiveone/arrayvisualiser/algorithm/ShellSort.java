@@ -10,8 +10,8 @@ public class ShellSort extends Algorithm {
 
     @Override
     public void start() {
-        for (int gap = visualiser.ARRAY_LENGTH / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < visualiser.ARRAY_LENGTH; i++) {
+        for (int gap = ArraySortVisualiser.ARRAY_LENGTH / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < ArraySortVisualiser.ARRAY_LENGTH; i++) {
                 int j = i;
                 while (j >= gap && visualiser.array[j] < visualiser.array[j - gap]) {
                     swap(j, j - gap);

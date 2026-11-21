@@ -14,7 +14,7 @@ public class Shuffle extends Algorithm {
 
     @Override
     public void start() {
-        for (int i = visualiser.ARRAY_LENGTH - 1; i > 0; i--) {
+        for (int i = ArraySortVisualiser.ARRAY_LENGTH - 1; i > 0; i--) {
             swap(i, random.nextInt(i+1));
             visualiser.update(DELAY);
         }

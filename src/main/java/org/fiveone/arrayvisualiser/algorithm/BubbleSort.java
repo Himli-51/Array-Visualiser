@@ -13,19 +13,17 @@ public class BubbleSort extends Algorithm {
     @Override
     public void start() {
         byte updateFrame = 0;
-        boolean isSolved;
-        for (int i = 1; i < visualiser.ARRAY_LENGTH; i++) {
-            isSolved = true;
-            for (int j = 0; j < visualiser.ARRAY_LENGTH - i; j++) {
-                if (i > 1) {
-                    visualiser.elementColors[visualiser.ARRAY_LENGTH - i + 1] = Color.GREEN;
-                }
-                if (visualiser.array[j] > visualiser.array[j + 1]) {
-                    swap(j, j + 1);
-                    isSolved = false;
+        int endIndex = ArraySortVisualiser.ARRAY_LENGTH - 2;
+        while (endIndex > 1) {
+            int newEndIndex = 0;
+            for (int i = 0; i < endIndex; i++) {
+                if (endIndex < ArraySortVisualiser.ARRAY_LENGTH) visualiser.elementColors[endIndex + 1] = Color.GREEN;
+                if (visualiser.array[i] > visualiser.array[i + 1]) {
+                    swap(i, i + 1);
+                    newEndIndex = i;
                 } else {
-                    visualiser.elementColors[j] = new Color(255, 60, 0);
-                    visualiser.elementColors[j+ 1] = new Color(255, 60, 0);
+                    visualiser.elementColors[i] = new Color(255, 60, 0);
+                    visualiser.elementColors[i + 1] = new Color(255, 60, 0);
                 }
                 updateFrame++;
                 updateFrame %= RATE;
@@ -33,9 +31,7 @@ public class BubbleSort extends Algorithm {
                     visualiser.update(1);
                 }
             }
-            if (isSolved) {
-                break;
-            }
+            endIndex = newEndIndex;
         }
         visualiser.update(0);
     }

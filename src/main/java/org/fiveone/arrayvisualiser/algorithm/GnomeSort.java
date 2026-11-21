@@ -14,7 +14,7 @@ public class GnomeSort extends Algorithm {
     public void start() {
         int i = 0;
         byte updateFrame = 0;
-        while (i < visualiser.ARRAY_LENGTH - 1) {
+        while (i < ArraySortVisualiser.ARRAY_LENGTH - 1) {
             if (visualiser.array[i] >  visualiser.array[i + 1]) {
                 swap(i, i + 1);
                 i += (i > 0) ? -1 : 1;

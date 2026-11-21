@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class ArraySortVisualiser extends JPanel implements Runnable {
-    public final int ARRAY_LENGTH = 640;
+    public static final int ARRAY_LENGTH = 640;
 
     public int[] array;
     public Color[] elementColors;
@@ -24,14 +24,20 @@ public class ArraySortVisualiser extends JPanel implements Runnable {
         setPreferredSize(new Dimension(width, height));
 
         shuffle = new Shuffle(this);
-        algorithms = new ArrayList<Algorithm>(2);
+        algorithms = new ArrayList<Algorithm>(20);
+        algorithms.add(new QuickSort(this));
+        algorithms.add(new MergeSort(this));
+        algorithms.add(new HeapSort(this));
+        algorithms.add(new RadixLSDSort(this));
         algorithms.add(new ShellSort(this));
         algorithms.add(new InsertionSort(this));
+        algorithms.add(new CombSort(this));
+        algorithms.add(new CocktailShakerSort(this));
         algorithms.add(new BubbleSort(this));
         algorithms.add(new SelectionSort(this));
         algorithms.add(new GnomeSort(this));
 
-        sortIndex = 0;
+        sortIndex = 8;
 
         array = createArray(ARRAY_LENGTH);
         elementColors = new Color[ARRAY_LENGTH];
