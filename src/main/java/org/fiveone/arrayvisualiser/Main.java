@@ -27,6 +27,7 @@ public class Main {
         frame.setVisible(true);
         frame.pack();
 
-        visualiser.run();
+        Thread visualiserThread = new Thread(visualiser);
+        visualiserThread.start();
     }
 }

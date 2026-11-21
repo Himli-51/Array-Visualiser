@@ -7,6 +7,7 @@ A really simple array visualizser built in Java I made for fun. Uses the ```java
 It's a small project, but here's the available features anyways:
 - Colours
 - Resizing the window
+- Array checking
 
 Available sorting algorithms:
 - Bubble Sort
